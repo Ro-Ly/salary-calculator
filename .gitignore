@@ -1,0 +1,19 @@
+# IntelliJ / IDE
+.idea/
+*.iml
+*.iws
+out/
+
+# OS
+.DS_Store
+
+# Backend
+backend/target/
+backend/log/
+backend/*.log
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/
+frontend/coverage/
