@@ -45,8 +45,9 @@ export class AppComponent implements OnInit {
     });
 
     this.updateCurrency();
-    // initial state (e.g. 50000 UAH monthly net)
-    this.onInputChange('MONTHLY_NET', 50000);
+    // initial state
+    this.data.monthlyNet = 1000;
+    this.onInputChange('MONTHLY_NET', 1000);
   }
 
   onInputChange(field: string, value: number) {
