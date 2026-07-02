@@ -1,0 +1,209 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 2rem 4rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-color);
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+  }
+
+  .controls {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      label {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: rgba(255,255,255,0.5);
+      }
+
+      select {
+        background: transparent;
+        color: white;
+        border: none;
+        border-bottom: 2px solid white;
+        padding: 0.5rem 0;
+        font-size: 1rem;
+        font-family: 'Inter', sans-serif;
+        font-weight: 600;
+        outline: none;
+        cursor: pointer;
+        min-width: 200px;
+        
+        option {
+          background: var(--bg-color);
+          color: white;
+        }
+      }
+    }
+
+    .checkbox-group {
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 1.5rem;
+
+      label {
+        font-size: 1rem;
+        color: white;
+        text-transform: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+
+        input[type="checkbox"] {
+          width: 1.2rem;
+          height: 1.2rem;
+          accent-color: var(--accent-color);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: 4rem;
+
+  .hero-title {
+    margin-bottom: 4rem;
+    h1 {
+      font-size: 6rem;
+      line-height: 0.9;
+      color: white;
+
+      span {
+        color: rgba(255,255,255,0.2);
+      }
+    }
+  }
+
+  .calculator-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+}
+
+.calc-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, background 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.04);
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: rgba(255,255,255,0.8);
+  }
+
+  .input-row {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.5);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .input-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      
+      .currency {
+        position: absolute;
+        left: 1rem;
+        font-weight: 600;
+        color: rgba(255,255,255,0.4);
+      }
+
+      input {
+        width: 100%;
+        background: var(--input-bg);
+        border: 1px solid var(--border-color);
+        color: white;
+        padding: 1rem 1rem 1rem 2.5rem;
+        font-size: 1.5rem;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        outline: none;
+        transition: border-color 0.3s ease, background 0.3s ease;
+
+        &:focus {
+          border-color: var(--accent-color);
+          background: var(--input-focus);
+        }
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+      }
+    }
+
+    .usd-equiv {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.3);
+      text-align: right;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .app-container {
+    padding: 1rem 2rem;
+  }
+  
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
+
+    .controls {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+  }
+
+  .main-content .hero-title h1 {
+    font-size: 4rem;
+  }
+}

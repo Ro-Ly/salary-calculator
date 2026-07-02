@@ -1,0 +1,114 @@
+<div class="app-container">
+  <header class="header">
+    <div class="logo">Salary Calculator</div>
+    <div class="controls">
+      <div class="control-group">
+        <label>Country</label>
+        <select [(ngModel)]="country" (ngModelChange)="onCountryChange()">
+          <option value="UKRAINE">Ukraine</option>
+          <option value="PORTUGAL">Portugal</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <label>Employment</label>
+        <select [(ngModel)]="uiEmploymentMode" (ngModelChange)="onEmploymentChange()">
+          <option value="B2B">B2B</option>
+          <option value="EMPLOYMENT">Employment</option>
+          <option *ngIf="country === 'PORTUGAL'" value="EMPLOYMENT_NHR">Employment NHR</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+
+
+    <div class="calculator-grid">
+      
+      <!-- Annual -->
+      <div class="calc-card">
+        <h3>Annual</h3>
+        <div class="input-row">
+          <label>Net</label>
+          <div class="input-wrapper">
+            <span class="currency">{{currencySymbol}}</span>
+            <input type="number" [ngModel]="data.annualNet" (ngModelChange)="onInputChange('ANNUAL_NET', $event)">
+          </div>
+          <span class="usd-equiv">~ ${{data.usdAnnualNet | number:'1.2-2'}}</span>
+        </div>
+        <div class="input-row">
+          <label>Gross</label>
+          <div class="input-wrapper">
+            <span class="currency">{{currencySymbol}}</span>
+            <input type="number" [ngModel]="data.annualGross" (ngModelChange)="onInputChange('ANNUAL_GROSS', $event)">
+          </div>
+          <span class="usd-equiv">~ ${{data.usdAnnualGross | number:'1.2-2'}}</span>
+        </div>
+      </div>
+
+      <!-- Monthly -->
+      <div class="calc-card">
+        <h3>Monthly</h3>
+        <div class="input-row">
+          <label>Net</label>
+          <div class="input-wrapper">
+            <span class="currency">{{currencySymbol}}</span>
+            <input type="number" [ngModel]="data.monthlyNet" (ngModelChange)="onInputChange('MONTHLY_NET', $event)">
+          </div>
+          <span class="usd-equiv">~ ${{data.usdMonthlyNet | number:'1.2-2'}}</span>
+        </div>
+        <div class="input-row">
+          <label>Gross</label>
+          <div class="input-wrapper">
+            <span class="currency">{{currencySymbol}}</span>
+            <input type="number" [ngModel]="data.monthlyGross" (ngModelChange)="onInputChange('MONTHLY_GROSS', $event)">
+          </div>
+          <span class="usd-equiv">~ ${{data.usdMonthlyGross | number:'1.2-2'}}</span>
+        </div>
+      </div>
+
+      <!-- Daily -->
+      <div class="calc-card">
+        <h3>Daily</h3>
+        <div class="input-row">
+          <label>Net</label>
+          <div class="input-wrapper">
+            <span class="currency">{{currencySymbol}}</span>
+            <input type="number" [ngModel]="data.dailyNet" (ngModelChange)="onInputChange('DAILY_NET', $event)">
+          </div>
+          <span class="usd-equiv">~ ${{data.usdDailyNet | number:'1.2-2'}}</span>
+        </div>
+        <div class="input-row">
+          <label>Gross</label>
+          <div class="input-wrapper">
+            <span class="currency">{{currencySymbol}}</span>
+            <input type="number" [ngModel]="data.dailyGross" (ngModelChange)="onInputChange('DAILY_GROSS', $event)">
+          </div>
+          <span class="usd-equiv">~ ${{data.usdDailyGross | number:'1.2-2'}}</span>
+        </div>
+      </div>
+
+      <!-- Hourly (visible mostly for B2B or generally) -->
+      <div class="calc-card">
+        <h3>Hourly</h3>
+        <div class="input-row">
+          <label>Net</label>
+          <div class="input-wrapper">
+            <span class="currency">{{currencySymbol}}</span>
+            <input type="number" [ngModel]="data.hourlyNet" (ngModelChange)="onInputChange('HOURLY_NET', $event)">
+          </div>
+          <span class="usd-equiv">~ ${{data.usdHourlyNet | number:'1.2-2'}}</span>
+        </div>
+        <div class="input-row">
+          <label>Gross</label>
+          <div class="input-wrapper">
+            <span class="currency">{{currencySymbol}}</span>
+            <input type="number" [ngModel]="data.hourlyGross" (ngModelChange)="onInputChange('HOURLY_GROSS', $event)">
+          </div>
+          <span class="usd-equiv">~ ${{data.usdHourlyGross | number:'1.2-2'}}</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+</div>
