@@ -32,7 +32,7 @@
           <label>Net</label>
           <div class="input-wrapper">
             <span class="currency">{{currencySymbol}}</span>
-            <input type="number" [ngModel]="data.annualNet" (ngModelChange)="onInputChange('ANNUAL_NET', $event)">
+            <input type="number" [(ngModel)]="data.annualNet" (ngModelChange)="onInputChange('ANNUAL_NET', $event)">
           </div>
           <span class="usd-equiv">~ ${{data.usdAnnualNet | number:'1.2-2'}}</span>
         </div>
@@ -40,7 +40,7 @@
           <label>Gross</label>
           <div class="input-wrapper">
             <span class="currency">{{currencySymbol}}</span>
-            <input type="number" [ngModel]="data.annualGross" (ngModelChange)="onInputChange('ANNUAL_GROSS', $event)">
+            <input type="number" [(ngModel)]="data.annualGross" (ngModelChange)="onInputChange('ANNUAL_GROSS', $event)">
           </div>
           <span class="usd-equiv">~ ${{data.usdAnnualGross | number:'1.2-2'}}</span>
         </div>
@@ -53,7 +53,7 @@
           <label>Net</label>
           <div class="input-wrapper">
             <span class="currency">{{currencySymbol}}</span>
-            <input type="number" [ngModel]="data.monthlyNet" (ngModelChange)="onInputChange('MONTHLY_NET', $event)">
+            <input type="number" [(ngModel)]="data.monthlyNet" (ngModelChange)="onInputChange('MONTHLY_NET', $event)">
           </div>
           <span class="usd-equiv">~ ${{data.usdMonthlyNet | number:'1.2-2'}}</span>
         </div>
@@ -61,7 +61,7 @@
           <label>Gross</label>
           <div class="input-wrapper">
             <span class="currency">{{currencySymbol}}</span>
-            <input type="number" [ngModel]="data.monthlyGross" (ngModelChange)="onInputChange('MONTHLY_GROSS', $event)">
+            <input type="number" [(ngModel)]="data.monthlyGross" (ngModelChange)="onInputChange('MONTHLY_GROSS', $event)">
           </div>
           <span class="usd-equiv">~ ${{data.usdMonthlyGross | number:'1.2-2'}}</span>
         </div>
@@ -74,7 +74,7 @@
           <label>Net</label>
           <div class="input-wrapper">
             <span class="currency">{{currencySymbol}}</span>
-            <input type="number" [ngModel]="data.dailyNet" (ngModelChange)="onInputChange('DAILY_NET', $event)">
+            <input type="number" [(ngModel)]="data.dailyNet" (ngModelChange)="onInputChange('DAILY_NET', $event)">
           </div>
           <span class="usd-equiv">~ ${{data.usdDailyNet | number:'1.2-2'}}</span>
         </div>
@@ -82,7 +82,7 @@
           <label>Gross</label>
           <div class="input-wrapper">
             <span class="currency">{{currencySymbol}}</span>
-            <input type="number" [ngModel]="data.dailyGross" (ngModelChange)="onInputChange('DAILY_GROSS', $event)">
+            <input type="number" [(ngModel)]="data.dailyGross" (ngModelChange)="onInputChange('DAILY_GROSS', $event)">
           </div>
           <span class="usd-equiv">~ ${{data.usdDailyGross | number:'1.2-2'}}</span>
         </div>
@@ -95,7 +95,7 @@
           <label>Net</label>
           <div class="input-wrapper">
             <span class="currency">{{currencySymbol}}</span>
-            <input type="number" [ngModel]="data.hourlyNet" (ngModelChange)="onInputChange('HOURLY_NET', $event)">
+            <input type="number" [(ngModel)]="data.hourlyNet" (ngModelChange)="onInputChange('HOURLY_NET', $event)">
           </div>
           <span class="usd-equiv">~ ${{data.usdHourlyNet | number:'1.2-2'}}</span>
         </div>

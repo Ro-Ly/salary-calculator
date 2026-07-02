@@ -38,7 +38,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.inputSubject.pipe(
-      debounceTime(300)
+      debounceTime(500),
+      distinctUntilChanged((prev, curr) => prev.field === curr.field && prev.value === curr.value)
     ).subscribe(({field, value}) => {
       this.doCalculate(field, value);
     });
@@ -102,9 +103,26 @@ export class AppComponent implements OnInit {
 
     this.calculatorService.calculate(req).subscribe({
       next: (res) => {
-        // Prevent overwriting the currently typing field if exact to avoid cursor jumping
-        // But for simplicity in this demo, we just patch the object
-        this.data = res;
+        // Prevent overwriting the currently typing field to avoid cursor jumping/glitching
+        const currentField = this.lastKnownField;
+        
+        if (currentField !== 'ANNUAL_NET') this.data.annualNet = res.annualNet;
+        if (currentField !== 'ANNUAL_GROSS') this.data.annualGross = res.annualGross;
+        if (currentField !== 'MONTHLY_NET') this.data.monthlyNet = res.monthlyNet;
+        if (currentField !== 'MONTHLY_GROSS') this.data.monthlyGross = res.monthlyGross;
+        if (currentField !== 'DAILY_NET') this.data.dailyNet = res.dailyNet;
+        if (currentField !== 'DAILY_GROSS') this.data.dailyGross = res.dailyGross;
+        if (currentField !== 'HOURLY_NET') this.data.hourlyNet = res.hourlyNet;
+        if (currentField !== 'HOURLY_GROSS') this.data.hourlyGross = res.hourlyGross;
+
+        this.data.usdAnnualNet = res.usdAnnualNet;
+        this.data.usdAnnualGross = res.usdAnnualGross;
+        this.data.usdMonthlyNet = res.usdMonthlyNet;
+        this.data.usdMonthlyGross = res.usdMonthlyGross;
+        this.data.usdDailyNet = res.usdDailyNet;
+        this.data.usdDailyGross = res.usdDailyGross;
+        this.data.usdHourlyNet = res.usdHourlyNet;
+        this.data.usdHourlyGross = res.usdHourlyGross;
       },
       error: (err) => console.error(err)
     });
