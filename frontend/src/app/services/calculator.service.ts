@@ -19,7 +19,7 @@ export interface CalculationResponse {
   dailyGross: number;
   hourlyNet: number;
   hourlyGross: number;
-  
+
   usdAnnualNet: number;
   usdAnnualGross: number;
   usdMonthlyNet: number;
@@ -34,7 +34,7 @@ export interface CalculationResponse {
   providedIn: 'root'
 })
 export class CalculatorService {
-  private apiUrl = 'http://localhost:8080/api/v1/calculator';
+  private apiUrl = 'https://salary-calculator-scb8.onrender.com/api/v1/calculator';
 
   constructor(private http: HttpClient) {}
 
